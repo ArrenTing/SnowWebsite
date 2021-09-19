@@ -1,0 +1,36 @@
+﻿@model SnowWebsite.Models.Car;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Car Website</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <div class="text-center">
+        Pressing WASD Keys will allow the Car to move in the corresponding direction
+        <br />
+        W = Move Forward,
+        <br />
+        A = Move Left,
+        <br />
+        S = Reverse,
+        <br />
+        D = Move Right
+    </div>
+
+    @using (Html.BeginForm("SendCarInfo", "Car", FormMethod.Post))
+    {
+        <input name="input-direction" id="input-direction" type="submit" class="btn btn-primary btn-lg input-direction" value="S" />
+    }
+    <br />
+    <br />
+    <p>Car is currently going @Model.Directions</p>
+</body>
+</html>
+
