@@ -4,36 +4,45 @@
 // Write your JavaScript code.
 var lock = false;
 
+var sendUrl = "https://car-server.azurewebsites.net/api/Car/SendCarInfo";
+
+var getUrl = "https://car-server.azurewebsites.net/api/Car/GetCarInfo";
+
 $(document).keydown(function (event) {
-    if (event.code == "KeyW" && lock==false) {
-        document.getElementById('input-direction').value = 'F';
-        $(".input-direction").trigger("click");
+    if (event.code == "KeyW" && lock == false) {
+        var carObject = {};
+        var url = sendUrl + "?Directions=F"
+        AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
         lock = true;
     }
-    if (event.code == "KeyS" && lock==false) {
-        document.getElementById('input-direction').value = 'B';
-        $(".input-direction").trigger("click");
+    if (event.code == "KeyS" && lock == false) {
+        var carObject = {};
+        var url = sendUrl + "?Directions=B"
+        AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
         lock = true;
     }
     if (event.code == "KeyA" && lock == false) {
-        document.getElementById('input-direction').value = 'L';
-        $(".input-direction").trigger("click");
+        var carObject = {};
+        var url = sendUrl + "?Directions=L"
+        AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
         lock = true;
     }
     if (event.code == "KeyD" && lock == false) {
-        document.getElementById('input-direction').value = 'R';
-        $(".input-direction").trigger("click");
+        var carObject = {};
+        var url = sendUrl + "?Directions=R"
+        AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
         lock = true;
     }
     if (event.code == "KeyQ" && lock == false) {
-        document.getElementById('input-direction').value = 'S';
-        $(".input-direction").trigger("click");
+        var carObject = {};
+        var url = sendUrl + "?Directions=S"
+        AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
         lock = true;
     }
-
 })
 $(document).keyup(function (event) {
-    document.getElementById('input-direction').value = 'S';
-    $(".input-direction").trigger("click");
+    var carObject = {};
+    var url = sendUrl + "?Directions=S"
+    AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
     lock = false;
 })

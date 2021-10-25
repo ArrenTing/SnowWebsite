@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Car Website</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="~/js/ajax.js"></script>
+    <script src="~/js/site.js"></script>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
@@ -24,13 +26,11 @@
         D = Move Right
     </div>
 
-    @using (Html.BeginForm("SendCarInfo", "Car", FormMethod.Post))
-    {
-        <input name="input-direction" id="input-direction" type="submit" class="btn btn-primary btn-lg input-direction" value="S" />
-    }
+    <iframe src="http://192.168.1.88" width="1080" height="920"></iframe>
+
     <br />
     <br />
-    <p>Car is currently going @Model.Directions</p>
+    <p class="display-direction"></p>
 </body>
 </html>
 
