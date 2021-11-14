@@ -39,6 +39,18 @@ $(document).keydown(function (event) {
         AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
         lock = true;
     }
+    if (event.code == "ArrowUp" && lock == false) {
+        var carObject = {};
+        var url = sendUrl + "?Directions=U"
+        AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
+        lock = true;
+    }
+    if (event.code == "ArrowDown" && lock == false) {
+        var carObject = {};
+        var url = sendUrl + "?Directions=D"
+        AjaxRequest(url, "GET", carObject, "json", GetSuccess, GetError);
+        lock = true;
+    }
 })
 $(document).keyup(function (event) {
     var carObject = {};
